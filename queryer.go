@@ -32,7 +32,7 @@ type Symbol struct {
 }
 
 func (s Symbol) CacheKey() string {
-	return fmt.Sprintf("price_%s_%s", s.Token, s.Target)
+	return fmt.Sprintf("pricer_%s_%s", s.Token, s.Target)
 }
 
 func NewQueryer(duration time.Duration, redis *redis.Client, symbols []Symbol, services []QueryService, ) *Queryer {
