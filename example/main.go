@@ -13,6 +13,7 @@ func main() {
 	symbols := []pricer.Symbol{
 		{Token: pricer.ETH, Target: pricer.USD},
 		{Token: pricer.FIL, Target: pricer.USD},
+		{Token: pricer.BSC, Target: pricer.USD},
 	}
 	
 	services := []pricer.QueryService{

@@ -17,6 +17,10 @@ func TestCoinMarketCap(t *testing.T) {
 			Token:  FIL,
 			Target: USD,
 		},
+		{
+			Token:  BSC,
+			Target: USD,
+		},
 	} {
 		price, err := cmc.Query(symbol.Token, symbol.Target)
 		require.NoError(t, err)

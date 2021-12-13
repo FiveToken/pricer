@@ -17,6 +17,10 @@ func TestCoinGecko(t *testing.T) {
 			Token:  FIL,
 			Target: USD,
 		},
+		{
+			Token:  FIL,
+			Target: USD,
+		},
 	} {
 		price, err := cg.Query(symbol.Token, symbol.Target)
 		require.NoError(t, err)

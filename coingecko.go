@@ -19,6 +19,8 @@ func (c CoinGecko) Query(token, target Token) (price float64, err error) {
 		token = "filecoin"
 	case ETH:
 		token = "ethereum"
+	case BSC:
+		token = "binancecoin"
 	}
 	url := fmt.Sprintf("https://api.coingecko.com/api/v3/simple/price?ids=%s&vs_currencies=%s", token, target)
 	q := resty.New()

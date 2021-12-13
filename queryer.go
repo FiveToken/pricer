@@ -13,6 +13,7 @@ import (
 const (
 	ETH Token = "eth"
 	FIL Token = "fil"
+	BSC Token = "bsc"
 	USD Token = "usd"
 )
 
