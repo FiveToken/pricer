@@ -54,7 +54,7 @@ func (q Queryer) Run() {
 			count := int64(0)
 			for _, service := range q.services {
 				price, err := service.Query(symbol.Token, symbol.Target)
-				if err != nil {
+				if err != nil || price <= 0 {
 					continue
 				}
 				total = total.Add(decimal.NewFromFloat(price))
@@ -63,8 +63,8 @@ func (q Queryer) Run() {
 			if count == 0 {
 				continue
 			}
-			log.Printf("query %s price done, services count: %d", symbol.Token, count)
 			avgPrice := total.Div(decimal.NewFromInt(count))
+			log.Printf("query %s price done, services count: %d avg price: %s", symbol.Token, count, avgPrice)
 			q.redis.Set(context.Background(), symbol.CacheKey(), avgPrice.String(), 0)
 		}
 		log.Printf("price queryer sleep: %s", q.duration)
