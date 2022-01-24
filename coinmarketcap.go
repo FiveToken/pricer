@@ -29,5 +29,13 @@ func (c CoinMarketCap) Query(token, target Token) (price float64, err error) {
 	if err != nil {
 		return
 	}
-	return j.Get("data").Get("quote").Get(strings.ToUpper(target.String())).Get("price").Float64()
+	data := j.Get("data")
+	if data == nil {
+		return
+	}
+	quote := data.Get("quote")
+	if quote == nil {
+		return
+	}
+	return quote.Get(strings.ToUpper(target.String())).Get("price").Float64()
 }

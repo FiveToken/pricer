@@ -33,5 +33,9 @@ func (c CoinGecko) Query(token, target Token) (price float64, err error) {
 	if err != nil {
 		return
 	}
-	return j.Get(token.String()).Get(target.String()).Float64()
+	out := j.Get(token.String())
+	if out == nil {
+		return
+	}
+	return out.Get(target.String()).Float64()
 }
