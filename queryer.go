@@ -15,6 +15,7 @@ const (
 	FIL Token = "fil"
 	BSC Token = "bsc"
 	USD Token = "usd"
+	CNY Token = "cny"
 )
 
 type Token string
